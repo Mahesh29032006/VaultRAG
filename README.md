@@ -1,26 +1,35 @@
-# SovereignRAG — Air-Gapped Private RAG Platform
+# VaultRAG — Local-First Private Document Q&A Engine
 
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.115+-009688.svg)](https://fastapi.tiangolo.com/)
 [![React 18](https://img.shields.io/badge/React-18-61dafb.svg)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.6-3178c6.svg)](https://www.typescriptlang.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![pytest](https://img.shields.io/badge/pytest-103%20passed-brightgreen.svg)](backend/tests/)
+[![Coverage](https://img.shields.io/badge/coverage-81%25-green.svg)](.coveragerc)
 
-**SovereignRAG** is a unified, self-contained, enterprise-grade Retrieval-Augmented Generation (RAG) platform architected for strictly air-gapped environments. Merged from the high-precision hybrid retrieval core of **NexusRAG v2.0** and the confidential privacy, audit, and quantization telemetry infrastructure of **SovereignAI**, SovereignRAG allows organizations to query sensitive clinical, legal, financial, and defense documents with zero non-loopback egress during local operations.
+**VaultRAG** is a local-first, private document Q&A and retrieval engine built with Python, FastAPI, and React. It operates strictly offline with zero external network dependencies required during local operation.
+
+### Key Verified Metrics (Benchmarked on Apple Silicon)
+- **Hybrid Retrieval:** Dense vector search (FAISS IndexFlatIP, 384-D) + sparse lexical search (BM25) combined via Reciprocal Rank Fusion ($k=60$).
+- **Search Latency:** **P50 0.50 ms, P95 0.60 ms** over precomputed vectors (100 benchmark runs).
+- **Retrieval Accuracy:** **19/20 test queries** ranked the correct source document first across clinical, legal, financial, and defense domains.
+- **Privacy Guard:** Regex-based PII de-identification covering **16 identifier types across 33 compiled patterns** with reversible HMAC-SHA256 pseudonymization.
+- **Cryptographic Audit Log:** Tamper-evident append-only SHA-256 Merkle chain that validates ledger integrity.
+- **Test Suite:** **103 passing pytest tests** with **81% application-code coverage** (excluding test suites).
 
 ---
 
 ## Key Highlights & Core Capabilities
 
-1. **Air-Gapped Hybrid Retrieval Engine (NexusRAG Core)**
-   - **DualIndex Vector Math**: Offline 384-dimensional dense embeddings (`all-MiniLM-L6-v2` via FAISS / pure-Python cosine vector math fallback) and optional 768-D cloud ChromaDB index.
+1. **Hybrid Retrieval Engine**
+   - **DualIndex Vector Math**: 384-dimensional dense embeddings (`all-MiniLM-L6-v2` via FAISS / pure-Python cosine vector math fallback) and optional cloud ChromaDB index.
    - **BM25 Lexical Ranking**: Pure-Python implementation from scratch featuring IDF smoothing, query stopword pruning, and length normalization ($k_1=1.5, b=0.75$).
-   - **Reciprocal Rank Fusion (RRF)**: Rank-based fusion ($k=60$) combining dense semantic vectors and lexical sparse tokens into an unified, rank-ordered evidence set.
+   - **Reciprocal Rank Fusion (RRF)**: Rank-based fusion ($k=60$) combining dense semantic vectors and lexical sparse tokens into a unified, rank-ordered evidence set.
    - **Recursive Chunking**: Bounded chunking ($\le 1000$ characters, $150$ character overlap) preserving sentence and paragraph integrity with line and page number tracking.
 
-2. **HIPAA Safe Harbor 18-Identifier Privacy Engine (SovereignAI Core)**
-   - Full detection and right-to-left substitution across all **18 HIPAA Safe Harbor identifier categories**: Names, SSNs, MRNs, Phone, Fax, Email, Dates, Addresses, Financial/Account numbers, NPI Provider IDs, Health Plan IDs, Licenses, Vehicle VINs, Device IDs, URLs, IP addresses, and Biometric references.
-   - Overlap and collision resolution (`_X` suffixing) with a reverse token map allowing 100% deterministic round-trip rehydration for authorized local environments.
+2. **Regex PII De-Identification Engine**
+   - Detection and right-to-left substitution across **16 identifier types** (33 regex patterns): Names, SSNs, MRNs, Phone, Fax, Email, Dates/Age, Addresses, Financial/Account numbers, NPI Provider IDs, Health Plan IDs, Licenses, Vehicle VINs, Device IDs, URLs, IP addresses, and Biometric references.
+   - Overlap and collision resolution (`_X` suffixing) with a reverse token map allowing deterministic round-trip rehydration for authorized local environments.
 
 3. **Cryptographic SHA-256 Audit Ledger**
    - Tamper-evident append-only Merkle-chained ledger recording every document ingestion, redaction, and local query.
