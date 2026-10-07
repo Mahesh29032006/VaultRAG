@@ -107,6 +107,20 @@ export const TelemetryHUD: React.FC = () => {
           </span>
         </div>
 
+        {/* Live Ollama Status Badge */}
+        <div
+          className={`flex items-center space-x-1.5 px-2.5 py-1 rounded-lg border text-xs font-mono transition-all ${
+            health?.ollama?.available
+              ? 'bg-emerald-50/70 border-emerald-300/80 text-emerald-800 dark:bg-emerald-950/30 dark:border-emerald-800/60 dark:text-emerald-300'
+              : 'bg-amber-50 border-amber-200 text-amber-800 dark:bg-amber-950/30 dark:border-amber-800/50 dark:text-amber-400'
+          }`}
+          title={health?.ollama?.available ? `Ollama active with model: ${health?.ollama?.model}` : 'Ollama daemon offline (deterministic fallback active)'}
+        >
+          <span className={`w-2 h-2 rounded-full ${health?.ollama?.available ? 'bg-emerald-500 shadow-sm shadow-emerald-500/50' : 'bg-amber-500'}`} />
+          <span className="font-semibold">Ollama:</span>
+          <span className="truncate max-w-[110px]">{health?.ollama?.available ? (health?.ollama?.model || 'Online') : 'Offline'}</span>
+        </div>
+
         {/* Engine Mode Toggle */}
         <div className="flex items-center space-x-1.5">
           <button
