@@ -1,0 +1,35 @@
+version: "3.8"
+
+services:
+  vaultrag:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: vaultrag:latest
+    container_name: vaultrag-app
+    restart: unless-stopped
+    ports:
+      - "8093:8093"
+    environment:
+      - DATA_DIR=/app/data
+      - OLLAMA_BASE_URL=http://host.docker.internal:11434
+      - OLLAMA_MODEL=qwen2.5:1.5b
+      - AIR_GAP_STRICT=false
+    volumes:
+      - ./data:/app/data
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  # Optional local Ollama service for fully containerized LLM deployment
+  # Uncomment if you want Docker to run Ollama automatically
+  # ollama:
+  #   image: ollama/ollama:latest
+  #   container_name: vaultrag-ollama
+  #   restart: unless-stopped
+  #   ports:
+  #     - "11434:11434"
+  #   volumes:
+  #     - ollama_data:/root/.ollama
+
+# volumes:
+#   ollama_data:
