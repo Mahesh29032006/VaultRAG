@@ -30,10 +30,33 @@ class OllamaClient:
                 res = client.get(f"{self.base_url}/api/tags")
                 if res.status_code == 200:
                     data = res.json()
-                    return "models" in data
+                    return bool(data.get("models"))
                 return False
         except Exception:
             return False
+
+    def get_available_models(self, timeout_s: float = 1.0) -> list[str]:
+        """Returns list of installed model names in Ollama."""
+        try:
+            with httpx.Client(timeout=timeout_s) as client:
+                res = client.get(f"{self.base_url}/api/tags")
+                if res.status_code == 200:
+                    data = res.json()
+                    return [m.get("name", "") for m in data.get("models", []) if m.get("name")]
+        except Exception:
+            pass
+        return []
+
+    def resolve_model(self) -> str:
+        """Resolves target model against locally installed Ollama models."""
+        available = self.get_available_models(timeout_s=0.5)
+        if not available:
+            return self.model
+        for m in available:
+            if self.model == m or self.model in m or m.startswith(self.model):
+                return m
+        logger.info("Configured Ollama model '%s' not found; using installed '%s'", self.model, available[0])
+        return available[0]
 
     async def stream_chat(
         self,
@@ -43,9 +66,10 @@ class OllamaClient:
         max_tokens: int = 1024
     ) -> AsyncIterator[str]:
         """Streams tokens from local Ollama chat endpoint."""
+        active_model = self.resolve_model()
         url = f"{self.base_url}/api/chat"
         payload = {
-            "model": self.model,
+            "model": active_model,
             "messages": [
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt}

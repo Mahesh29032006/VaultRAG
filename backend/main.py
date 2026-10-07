@@ -238,7 +238,7 @@ async def health_check():
         "audit_healthy": audit_valid,
         "ollama": {
             "available": ollama_ok,
-            "model": settings.ollama_model
+            "model": rag_engine.ollama_client.resolve_model() if rag_engine and ollama_ok else settings.ollama_model
         },
         "gemini": {
             "available": gemini_ok

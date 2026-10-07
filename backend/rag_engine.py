@@ -352,24 +352,24 @@ class RAGEngine:
         gen_t0 = time.perf_counter()
         answer = ""
         offline_fallback = False
-        model_name = self.settings.ollama_model if req.mode == "airgap" else self.settings.gemini_model
+        model_name = self.ollama_client.resolve_model() if req.mode == "airgap" else self.settings.gemini_model
+
+        def _run_async(coro):
+            try:
+                loop = asyncio.get_running_loop()
+            except RuntimeError:
+                loop = None
+            if loop is not None and loop.is_running():
+                import concurrent.futures
+                with concurrent.futures.ThreadPoolExecutor(max_workers=1) as pool:
+                    return pool.submit(asyncio.run, coro).result()
+            return asyncio.run(coro)
 
         if req.mode == "cloud":
             if not self.settings.gemini_api_key:
                 raise LLMUnavailableError("Gemini API key not configured")
             try:
-                loop = asyncio.get_event_loop()
-                if loop.is_running():
-                    import concurrent.futures
-                    with concurrent.futures.ThreadPoolExecutor() as pool:
-                        answer = pool.submit(
-                            asyncio.run,
-                            self.gemini_client.generate(SOVEREIGN_SYSTEM_PROMPT, user_prompt)
-                        ).result()
-                else:
-                    answer = asyncio.run(
-                        self.gemini_client.generate(SOVEREIGN_SYSTEM_PROMPT, user_prompt)
-                    )
+                answer = _run_async(self.gemini_client.generate(SOVEREIGN_SYSTEM_PROMPT, user_prompt))
             except LLMUnavailableError:
                 raise
             except Exception as e:
@@ -379,18 +379,7 @@ class RAGEngine:
             ollama_online = self.ollama_client.health_check(timeout_s=1.0)
             if ollama_online:
                 try:
-                    loop = asyncio.get_event_loop()
-                    if loop.is_running():
-                        import concurrent.futures
-                        with concurrent.futures.ThreadPoolExecutor() as pool:
-                            answer = pool.submit(
-                                asyncio.run,
-                                self.ollama_client.chat(SOVEREIGN_SYSTEM_PROMPT, user_prompt)
-                            ).result()
-                    else:
-                        answer = asyncio.run(
-                            self.ollama_client.chat(SOVEREIGN_SYSTEM_PROMPT, user_prompt)
-                        )
+                    answer = _run_async(self.ollama_client.chat(SOVEREIGN_SYSTEM_PROMPT, user_prompt))
                 except Exception as e:
                     logger.warning("Ollama call failed (%s); switching to deterministic fallback", e)
                     answer = fallback_generate(effective_query, retrieved_chunks)

@@ -1,0 +1,43 @@
+====================================================================================================
+SOVEREIGN-RAG / VAULTRAG EMPIRICAL RETRIEVAL & GROUNDING BENCHMARK [OLLAMA LIVE]
+====================================================================================================
+Timestamp:        2026-10-07T19:10:32.795627+00:00
+Host Platform:    Apple Silicon (macOS Darwin arm64)
+Corpus Hash:      26b1ea40339e4fa0
+Git Commit:       b0081412
+Active Model:     qwen2.5:1.5b (Ollama Local Daemon, 1.5B parameters, Q4_K_M)
+Embedding Space:  all-MiniLM-L6-v2 (384-D, FlatIP + BM25 Lexical Inverted Index)
+Sample Size:      N=20 (20 distinct domain-specific queries)
+----------------------------------------------------------------------------------------------------
+ID  | Query                                    | Docs | Retr(ms) | Gen(ms)  | E2E(ms)  | Grd(h) | Unsupp | Claims (V/I/U)
+----------------------------------------------------------------------------------------------------
+1   | What is the Torsemide dosage prescrib... | 4    | 2.41     | 437.06   | 456.23   | 0.75   | 0.25   | 1V / 0I / 0U
+2   | What was the patient's Left Ventricul... | 4    | 0.87     | 1296.01  | 1312.00  | 0.75   | 0.25   | 1V / 0I / 0U
+3   | What is the patient's NT-proBNP labor... | 4    | 0.69     | 2878.51  | 2897.02  | 0.75   | 0.25   | 1V / 0I / 0U
+4   | Which oral medication was switched fr... | 4    | 0.85     | 2593.38  | 2610.67  | 0.75   | 0.25   | 1V / 0I / 0U
+5   | What is the discharge dosage for Sacu... | 4    | 0.87     | 3931.47  | 3980.25  | 0.75   | 0.25   | 1V / 0I / 0U
+6   | What is the aggregate liability cap u... | 4    | 1.43     | 2254.94  | 2271.69  | 0.75   | 0.25   | 1V / 0I / 0U
+7   | Which state substantive law governs t... | 4    | 1.62     | 2420.92  | 2437.97  | 0.75   | 0.25   | 1V / 0I / 0U
+8   | What are the invoice payment terms an... | 4    | 0.98     | 5681.68  | 5698.83  | 0.75   | 0.25   | 2V / 0I / 0U
+9   | What is the required monthly system a... | 4    | 2.33     | 3747.82  | 3764.15  | 0.75   | 0.25   | 1V / 0I / 0U
+10  | How long does the non-disclosure peri... | 4    | 0.81     | 2788.99  | 2799.54  | 0.75   | 0.25   | 1V / 0I / 0U
+11  | What are the operational frequency ba... | 4    | 0.66     | 8117.97  | 8147.18  | 0.75   | 0.25   | 3V / 0I / 0U
+12  | How many Gallium Nitride GaN T/R modu... | 4    | 0.59     | 4060.39  | 4076.85  | 0.75   | 0.25   | 1V / 0I / 0U
+13  | What is the aggregate aperture radiat... | 4    | 1.06     | 3602.84  | 3622.02  | 0.75   | 0.25   | 1V / 0I / 0U
+14  | What coolant is used for thermal diss... | 4    | 1.15     | 3591.40  | 3607.56  | 0.75   | 0.25   | 1V / 0I / 0U
+15  | Under which US export control regulat... | 4    | 1.36     | 4555.16  | 4579.78  | 0.75   | 0.25   | 2V / 0I / 0U
+16  | What is the Net Asset Value NAV of Ap... | 4    | 1.37     | 4153.95  | 4169.94  | 0.75   | 0.25   | 1V / 0I / 0U
+17  | What is the gross leverage ratio of t... | 4    | 1.21     | 3083.92  | 3122.24  | 0.75   | 0.25   | 0V / 0I / 0U
+18  | What is the 99% 1-Day Value at Risk V... | 4    | 0.62     | 5815.63  | 5866.98  | 0.75   | 0.25   | 1V / 0I / 0U
+19  | What is the size of the Term Loan ext... | 4    | 6.52     | 4123.70  | 4146.56  | 0.75   | 0.25   | 1V / 0I / 0U
+20  | Which accounting firm served as lead ... | 4    | 1.31     | 3049.05  | 3062.54  | 0.75   | 0.25   | 1V / 0I / 0U
+====================================================================================================
+AGGREGATE EMPIRICAL BENCHMARK METRICS (MEASURED VIA TIME.PERF_COUNTER):
+----------------------------------------------------------------------------------------------------
+Retrieval Latency (ms):  P50 = 1.15 ms | P95 = 6.52 ms | Mean = 1.44 ms
+Generation Latency (ms): P50 = 3602.84 ms | P95 = 8117.97 ms | Mean = 3624.53 ms
+End-to-End Latency (ms): P50 = 3622.02 ms | P95 = 8147.18 ms | Mean = 3631.50 ms
+Grounding Confidence:   Avg = 0.750 (heuristic claim verification)
+Unsupported Claim Rate: Avg = 0.250 (heuristic claim verification)
+Doc Match Accuracy:     95.0% (19/20 queries matched expected top-1 document)
+====================================================================================================

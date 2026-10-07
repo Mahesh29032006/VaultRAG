@@ -40,7 +40,7 @@ class Settings(BaseSettings):
     chunk_overlap: int = 60
 
     ollama_url: str = "http://127.0.0.1:11434"
-    ollama_model: str = "llama3:8b"
+    ollama_model: str = "qwen2.5:1.5b"
     gemini_api_key: str = ""
     gemini_model: str = "gemini-3.5-flash"
     llm_temperature: float = 0.1
