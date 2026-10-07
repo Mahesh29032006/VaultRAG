@@ -1,0 +1,1 @@
+"""SovereignRAG backend package."""

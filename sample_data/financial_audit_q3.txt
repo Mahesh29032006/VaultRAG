@@ -1,0 +1,34 @@
+STRICTLY PRIVATE & CONFIDENTIAL // FOR INTERNAL AUDIT COMMITTEE USE ONLY
+APEX MERIDIAN CAPITAL MANAGEMENT - Q3 FORENSIC AUDIT & TREASURY REPORT
+
+ENTITY DETAILS:
+Fund Entity: Apex Meridian Master Fund LP (Delaware Reg #4829104)
+Prime Broker: Morgan Stanley & Co. LLC
+Custodian Account: #8841-0029-4410-MS
+Wire Settlement IBAN: US44 APEX 0210 0002 9948 2104 99
+Chief Compliance Officer: Jonathan Sterling (j.sterling@apexmeridian.internal)
+Lead External Auditor: Ernst & Young LLP (Lead Partner: Sarah Jenkins, CPA)
+Date of Audit Sign-off: September 30, 2026
+
+EXECUTIVE SUMMARY OF ASSETS UNDER MANAGEMENT (AUM):
+- Net Asset Value (NAV): $1,428,500,000.00 ($1.428B)
+- Gross Notional Exposure: $2,890,200,000.00 (Gross Leverage: 2.02x)
+- Unencumbered Cash Reserves: $214,800,000.00 held across NY Federal Reserve repo facility & Tier-1 commercial paper.
+- Year-to-Date (YTD) Net Return: +16.84% (vs S&P 500 Benchmark +12.30%).
+
+CONFIDENTIAL M&A DISCUSSIONS & SPECIAL SITUATION EXPOSURE:
+1. "Project Titan": Apex has accumulated a 4.85% undisclosed activist stake in NovaBiome Robotics Corp (NASDAQ: NVBM) representing $69.3M invested capital at weighted avg cost basis $32.40/share. Standstill agreement currently active until Nov 15, 2026.
+2. Private Debt Tranche B: $45,000,000 term loan extended to BioSynthetix AG at SOFR + 650 bps with senior secured first-lien on EU patent portfolio. Default covenant triggered if Fixed Charge Coverage Ratio drops below 1.25x (current ratio: 1.31x).
+
+TAX JURISDICTION & OFFSHORE SUBSIDIARY ROUTING:
+- Cayman Islands Feeder: Apex Meridian Offshore Ltd (CR-194029) - $610M NAV.
+- Luxembourg RAIF: Meridian European Yield S.C.A. (B-289410) - €340M NAV.
+- Intercompany Transfer Pricing Interest Rate: 5.42% under Section 482 Treasury Regulations.
+
+INTERNAL RISK CONTROLS & COMPLIANCE FINDINGS:
+- Value at Risk (99% 1-Day VaR): $18,400,000 (1.29% of NAV, within the Board mandate of 2.00%).
+- Stress Test Scenario (2008 Lehman equivalent): Projected drawdown -8.4% with maximum liquidity draw of $75M.
+- KYC / AML Review: 100% of Limited Partners (LPs) verified under FinCEN CDD Rule. No sanctioned entities detected.
+
+Report Hash: a9f81d4e082b99ef73c68a44b1c8f1e092147db1853d9e01869e9a4fba7015cf
+Approved by: Apex Meridian Audit Committee

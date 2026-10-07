@@ -1,0 +1,49 @@
+MASTER SERVICES AGREEMENT (MSA)
+DOCUMENT ID: MSA-CORP-2026-V4
+EFFECTIVE DATE: October 1, 2026
+PARTIES: Apex Cloud Systems, Inc. ("Vendor") and Meridian Global Enterprises LLC ("Client")
+
+RECITALS
+This Master Services Agreement ("Agreement") governs the procurement and delivery of enterprise cloud infrastructure and artificial intelligence data processing services.
+
+SECTION 1. SCOPE OF SERVICES & DELIVERABLES
+1.1 Vendor shall deliver the cloud-hosted analytical pipelines and machine learning inference services described in each applicable Statement of Work ("SOW").
+1.2 Any modifications to the project scope must be executed via a written Change Order signed by authorized representatives of both parties.
+
+SECTION 2. TERM AND TERMINATION
+2.1 Initial Term: This Agreement commences on the Effective Date and remains active for twenty-four (24) consecutive months.
+2.2 Termination for Convenience: Either party may terminate this Agreement or any active SOW without cause by delivering thirty (30) days prior written notice to the other party.
+2.3 Termination for Material Breach: Either party may terminate immediately if the other party breaches any material term and fails to cure such breach within fifteen (15) calendar days of receiving written notice.
+
+SECTION 3. FEES, BILLING & PAYMENT SCHEDULE
+3.1 Professional and Platform Fees shall be billed monthly in arrears as set forth in Exhibit A.
+3.2 Payment Terms: All invoices are strictly Net thirty (30) days from the invoice issuance date.
+3.3 Late Payment Penalties: Delinquent balances accrue interest at the lesser of one and one-half percent (1.5%) per month or the maximum rate permissible by applicable statutory law.
+
+SECTION 4. CONFIDENTIALITY AND PROPRIETARY DATA
+4.1 "Confidential Information" encompasses all proprietary source code, algorithmic architectures, customer records, and operational documentation disclosed hereunder.
+4.2 Non-Disclosure Period: The obligations of non-disclosure and restricted use shall survive the expiration or termination of this Agreement for five (5) full calendar years.
+4.3 Trade Secrets: Protection of bona fide trade secrets shall continue in perpetuity as long as the information qualifies as a trade secret under applicable statutory trade secret law.
+
+SECTION 5. INTELLECTUAL PROPERTY & OWNERSHIP
+5.1 Client Ownership: Client shall solely own all right, title, and interest in and to all Work Product, custom models, and derivative data produced exclusively for Client under this Agreement.
+5.2 Pre-Existing Technology: Vendor retains exclusive ownership over all pre-existing software, core frameworks, model weights, and proprietary vector indexing algorithms developed prior to or outside of this Agreement.
+
+SECTION 6. SERVICE LEVEL AGREEMENT (SLA) & PERFORMANCE
+6.1 System Availability: Vendor warrants monthly uptime availability of not less than ninety-nine and nine-tenths percent (99.9%), excluding scheduled routine maintenance windows.
+6.2 Service Credits: If monthly availability drops below 99.9%, Client is entitled to a service fee credit equal to ten percent (10%) of the monthly recurring platform fee.
+
+SECTION 7. REPRESENTATIONS AND WARRANTIES
+7.1 Vendor represents and warrants that the services will be performed in a professional, workmanlike manner adhering to prevailing industry standards.
+7.2 EXCEPT AS EXPRESSLY SET FORTH HEREIN, VENDOR DISCLAIMS ALL OTHER WARRANTIES, EXPRESS OR IMPLIED, INCLUDING THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+
+SECTION 8. LIMITATION OF LIABILITY
+8.1 AGGREGATE LIABILITY CAP: IN NO EVENT SHALL EITHER PARTY'S TOTAL AGGREGATE LIABILITY ARISING OUT OF OR RELATING TO THIS AGREEMENT EXCEED TWO MILLION UNITED STATES DOLLARS ($2,000,000.00 USD).
+8.2 CONSEQUENTIAL DAMAGES WAIVER: NEITHER PARTY SHALL BE LIABLE FOR INDIRECT, INCIDENTAL, SPECIAL, PUNITIVE, OR CONSEQUENTIAL DAMAGES, INCLUDING LOSS OF PROFITS, DATA LOSS, OR BUSINESS INTERRUPTION.
+
+SECTION 9. INDEMNIFICATION
+9.1 Vendor shall defend, indemnify, and hold harmless Client against any third-party claim alleging that the software or services infringe any valid patent, copyright, or trademark.
+
+SECTION 10. GOVERNING LAW AND JURISDICTION
+10.1 This Agreement is governed by and construed in accordance with the substantive laws of the State of Delaware, without giving effect to conflicts of laws principles.
+10.2 Dispute Resolution: Any unresolved dispute arising out of this Agreement shall be settled by binding confidential arbitration administered by the American Arbitration Association (AAA) in Wilmington, Delaware.

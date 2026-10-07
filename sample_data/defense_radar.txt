@@ -1,0 +1,23 @@
+# CLASSIFIED / ITAR CONTROLLED TECHNICAL SPECIFICATION
+DOCUMENT REF: DEF-AVIONICS-2026-X9
+CLASSIFICATION: ITAR RESTRICTED // NOFORN
+EXPORT CONTROL JURISDICTION: United States Munitions List (USML) Category XI(a)
+
+SECTION 1: SYSTEM IDENTIFICATION AND OPERATIONAL FREQUENCIES
+The Airborne Active Electronically Scanned Array (AESA) Radar Subsystem, designated "Spectre-9", operates across dual frequency bands:
+1. Primary Search and Target Designation Band: X-Band spanning 8.50 GHz to 10.68 GHz with agility hops every 12 microseconds.
+2. High-Resolution Synthetic Aperture Radar (SAR) Mapping Band: Ka-Band operating between 33.40 GHz and 36.00 GHz for sub-decimeter surface imaging.
+
+SECTION 2: TRANSMIT/RECEIVE MODULE POWER AND COOLING
+The AESA antenna aperture incorporates 1,536 Gallium Nitride (GaN) solid-state Transmit/Receive (T/R) modules.
+Each T/R module generates a peak RF power output of 18.5 Watts at 35% power-added efficiency (PAE), yielding an aggregate aperture radiated peak power of 28.4 Kilowatts.
+Thermal dissipation is managed exclusively via closed-loop polyalphaolefin (PAO) liquid coolant operating at an inlet temperature of -40°C to +55°C, with a maximum allowable pressure drop across the manifold of 28.5 psi.
+
+SECTION 3: CLASSIFIED CRYPTOGRAPHIC ID AND DATA LINK
+All radar track telemetry transmitted to surface ground control stations is encrypted using Type-1 Suite A cryptographic algorithms implemented in radiation-hardened ASIC hardware (Part Number: CRYPT-AV-902).
+The cryptographic zeroization switch must purge all volatile key material within 15 milliseconds of activation or upon cockpit ejection initiation.
+
+SECTION 4: ITAR EXPORT RESTRICTIONS AND HANDLING
+This technical data is subject to the Arms Export Control Act (22 U.S.C. 2778) and International Traffic in Arms Regulations (22 CFR 120-130).
+Transfer to non-US persons or unauthorized facilities without Department of State Directorate of Defense Trade Controls (DDTC) written approval is strictly prohibited by federal law.
+All storage and processing of this document must occur on air-gapped workstations isolated from commercial internet connections.
