@@ -73,8 +73,8 @@ PII_RULES: list[tuple[str, re.Pattern, int, float, Any]] = [
     ("ADDRESS", re.compile(r"\b\d{1,5}\s+[A-Za-z0-9\s.,]+?\b(?:Street|St|Avenue|Ave|Terrace|Road|Rd|Boulevard|Blvd|Lane|Ln|Drive|Way)\b(?:[,\s]+[A-Za-z\s]+[,\s]+[A-Z]{2}\s+\d{5})?", re.IGNORECASE), 0, 0.90, lambda t: any(c in t for c in "0123456789")),
 
     # 18. NAME: Honorifics, doctors, operators, labeled names (single-line bounds)
-    ("NAME", re.compile(r"(?i)\b(?:Miss|Mr|Mrs|Ms|Master|Mast|Dr|DR|Doctor|Prof|Professor|Shri|Smt)\.?\s+([A-Za-z]{2,}(?:[ \t]+[A-Za-z]{2,}){1,3})\b"), 0, 0.96, lambda t: any(w in t.lower() for w in ("dr", "mr", "ms", "miss", "prof", "shri", "smt"))),
-    ("NAME", re.compile(r"(?i)(?:Patient\s*Name|Patient|:\s*Name|Name\s*:|Attending(?:\s*Physician)?|Emergency\s*Contact|Physician)\s*[:.]?\s*(?:Miss|Mr|Mrs|Ms|Dr|DR)?\.?\s*([A-Za-z]{2,}(?:[ \t]+[A-Za-z]{2,}){1,3})\b"), 1, 0.94, lambda t: any(w in t.lower() for w in ("name", "patient", "attending", "emergency", "physician"))),
+    ("NAME", re.compile(r"(?i)\b(?:Miss|Mr|Mrs|Ms|Master|Mast|Dr|DR|Doctor|Prof|Professor|Shri|Smt)\.?\s+([A-Za-z]{2,}(?:[ \t]+(?!at\b|in\b|on\b|to\b|from\b|by\b|with\b|and\b|or\b)[A-Za-z]{2,}){0,3})\b"), 0, 0.96, lambda t: any(w in t.lower() for w in ("dr", "mr", "ms", "miss", "prof", "shri", "smt"))),
+    ("NAME", re.compile(r"(?i)(?:Patient\s*Name|Patient|:\s*Name|Name\s*:|Attending(?:\s*Physician)?|Emergency\s*Contact|Physician)\s*[:.]?\s*(?:Miss|Mr|Mrs|Ms|Dr|DR)?\.?\s*([A-Za-z]{2,}(?:[ \t]+(?!at\b|in\b|on\b|to\b|from\b|by\b|with\b|and\b|or\b)[A-Za-z]{2,}){0,3})\b"), 1, 0.94, lambda t: any(w in t.lower() for w in ("name", "patient", "attending", "emergency", "physician"))),
     ("NAME", re.compile(r"(?i)\b(?:Printed\s*By|Operator|Technician|Verified\s*By)\s*[:.]?\s*([A-Za-z0-9_-]{3,20})\b"), 1, 0.92, lambda t: any(w in t.lower() for w in ("printed", "operator", "technician", "verified"))),
     ("NAME", re.compile(r"(?i)\b([A-Za-z0-9_-]{3,20})(?:\s*Printed\s*By)\b"), 1, 0.92, lambda t: "printed" in t.lower()),
 ]

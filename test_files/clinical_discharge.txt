@@ -1,0 +1,9 @@
+DISCHARGE SUMMARY - FICTIONAL TEST DATA
+Patient Name: Rahul Menon
+MRN: 48210-33781-CV
+SSN: 123-45-6789
+Phone: 555-014-2299
+Medications at discharge:
+1. Torsemide 20 mg once daily. Hold if systolic BP below 100.
+2. Metoprolol 25 mg twice daily.
+Follow-up: cardiology clinic in 2 weeks.
