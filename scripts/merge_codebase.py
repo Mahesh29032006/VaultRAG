@@ -22,8 +22,12 @@ CATEGORIES = [
             "README.md",
             "requirements.txt",
             "start.sh",
+            "Dockerfile",
+            "docker-compose.yml",
+            ".coveragerc",
             ".env.example",
             ".gitignore",
+            "make_test_files.py",
         ]
     ),
     (
@@ -84,8 +88,12 @@ CATEGORIES = [
         [
             "scripts/verify.py",
             "scripts/benchmark.py",
+            "scripts/verify_edge_cases.py",
+            "scripts/run_golden_eval.py",
             "scripts/verify_air_gap.py",
             "scripts/merge_codebase.py",
+            "benchmarks/live_ollama_benchmark_results.txt",
+            "test_files/golden.csv",
         ]
     ),
     (
